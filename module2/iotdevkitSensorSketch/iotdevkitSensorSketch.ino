@@ -56,7 +56,7 @@ void processSensors()
   }
 }
 
-
+// Simple method to check for a command on the serial connection
 void serialEvent() {
   // while there is data to read in the buffer, read it
   while (Serial.available()) {
@@ -72,32 +72,38 @@ void serialEvent() {
 }
 
 void setup() {
+
+  // Initialize the LEDs on the MXChip board
   pinMode(LED_WIFI, OUTPUT);
   pinMode(LED_AZURE, OUTPUT);
   pinMode(LED_USER, OUTPUT);
-  
   rgbLed.turnOff();
 
+  // Initialise the temperature and humidity sensor
   ext_i2c = new DevI2C(D14, D15);
-  
   ht_sensor = new HTS221Sensor(*ext_i2c);
   ht_sensor->init(NULL);
 
+  // Initialize the pressure sensor
   lp_sensor= new LPS22HBSensor(*ext_i2c);
   lp_sensor->init(NULL);
 
+   // Adjust the baud rate of the serial connection to match the serial settings on the Pc side
+   // Reduce to 9600 if seeing strange behaviour
    Serial.begin(115200);
 
   }  
 
 void loop() {
 
+    // Do the sensor tasks
     processSensors();
 
+    // Check for an incoming command on the serial connection
     serialEvent();
 
      if (stringComplete) {
-        // turn LED on or off depending on command
+        // turn LED's on or off depending on command
         if(inputString == "OFF")
         {
             digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
