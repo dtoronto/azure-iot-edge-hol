@@ -2,6 +2,10 @@
 // Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. 
 
+// This code provides an MXChip (AZ3166) based solution for sending
+// IoT data as part of Module 2 of the hands on lab found at
+// https://github.com/AzureIoTGBB/azure-iot-edge-hol/tree/master/module2
+
 #include "Arduino.h"
 #include "Sensor.h"
 #include "SystemTime.h"
