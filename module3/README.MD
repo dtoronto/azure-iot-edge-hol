@@ -4,7 +4,7 @@ Created and maintained by the Microsoft Azure IoT Global Black Belts
 
 ## Introduction
 
-For this step of the lab, we are going to create an IoT Edge module that take the raw CSV format provided by our Azure MXChip, converts it to JSON, and then puts the messages back on the edge Hub for further processing.
+For this step of the lab, we are going to create an IoT Edge module that take the raw CSV format provided by our Arduino, converts it to JSON, and then puts the messages back on the edge Hub for further processing.
 
 We will develop our module in C# using .NET Core.   .NET Core is the cross-platform version of Microsoft's .NET framework.  The module and image we develop in this section can be used, unchanged, on x86/x64 based Linux distributions, and can be cross compiled for ARM distributions as well.
 
