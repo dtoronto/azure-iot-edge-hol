@@ -1,17 +1,15 @@
 # Azure IoT Edge Hands On Labs - Module 2
 
-Created and maintained by the Microsoft Azure IoT Global Black Belts
-
 ## KNOW BEFORE YOU START
 
 This version of module2 uses the [MXChip IoT DevKit](https://aka.ms/iot-devkit) and .NET Core for our "IoT Device".  If you have trouble with it, or simply prefer python, there is an alternate implementation [here](./README.md)
 
 ## Introduction
-For this step of the lab, we are going to create our "IoT Device".  For the labs, we wanted to leverage a physical device to make the scenario slightly more realistic (and fun!). 
+For this step of the lab, we are going to create our "IoT Device".  For the labs, we wanted to leverage a physical device to make the scenario slightly more realistic and flexible.
 
 Unlike most Arduino boards, the [MXChip IoT DevKit](https://aka.ms/iot-devkit) has built-in wifi and could talk directly to Azure IoT Hub. For this module however we will send sensor data from the MXChip  over simple serial connection to a PC.  The PC will run code that reads the serial/USB port and connects and sends that data to IoT Edge. This simulates a common IoT scenario in which the sensor devices are connected through an intermidatary system or process.
 
-For information on using the built in WiFi of the [MXChip IoT DevKit](https://aka.ms/iot-devkit) to connect directly to Azure IoT Hub see https://docs.microsoft.com/en-au/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started
+For instructions on using the built in WiFi of the [MXChip IoT DevKit](https://aka.ms/iot-devkit) to connect directly to Azure IoT Hub see https://docs.microsoft.com/en-au/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started
 
 ## Install Required Software
 [MXChip IoT DevKit](https://aka.ms/iot-devkit) requires the installation of some additional libraries and toolchains. Whilst These can be installed [manually](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/), We encourage you to use the following [one-click installation process](https://microsoft.github.io/azure-iot-developer-kit/docs/get-started/#install-development-environment) to prepare the development environment. This will install a complete development environment including:
@@ -23,7 +21,7 @@ For information on using the built in WiFi of the [MXChip IoT DevKit](https://ak
 * DevKit Board Package: Tool chains, libraries, and projects for the DevKit.
 * ST-Link Utility: Essential tools and drivers.
 
-If you already have some of them installed, the script will detect and skip them.
+If you already have any these installed, the script will detect that and skip them.
 
 ## Create Arduino device
 

@@ -1,6 +1,5 @@
 # Azure IoT Edge Hands On Labs - Module 1
 
-Created and maintained by the Microsoft Azure IoT Global Black Belts
 ## KNOW BEFORE YOU START
 
 This version of module1 uses the [MXChip IoT DevKit](https://aka.ms/iot-devkit) device to provide sensor data. You can develop for it using both the standard Arduino IDE or the Visual Studio Code extension for Arduino.  With built in Wifi, OLED display, headphone, microphone, sensors like temperature, humidity, motionand  pressure, the [MXChip IoT DevKit](https://aka.ms/iot-devkit) makes it very easy to get started with Azure IoT projects.
@@ -182,4 +181,4 @@ CTRL-C to exit the logs when you are ready
 
 __**Congratulations -- You now have an IoT Edge device up and running and ready to use**__
 
-To continue with module 2, click [here](/module2)
+To continue with module 2, click [here](/module2/README.dotnet.mxchip.md)
