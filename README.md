@@ -14,7 +14,7 @@ In this workshop you will:
 
 The labs are broken up into the following modules:
 
-* [Module 1](module1\mxchip\README.mxchip.md) - Prerequisites and IoT Edge setup
+* [Module 1](module1/mxchip/README.mxchip.md) - Prerequisites and IoT Edge setup
 * Module 2 - Setup and program the "IoT Device" using on of the following options
   * [Arduino Uno](module2)
   * [MXChip IoT DevKit](module2/README.dotnet.mxchip.md)

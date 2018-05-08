@@ -71,7 +71,7 @@ Per the note about needing an intermediate IoT device to talk to the serial port
 
 For our device, we will leverage a .NET Core console app that emulates our IoT Device.  The device leverages our C# Azure IoT SDK to connect to the hub.
 
-### setup libraries and pre-requisites
+### Setup libraries and pre-requisites
 
 1. To represent our device in IoT Hub, we need to create an IoT Device
     * in the Azure portal, for your IoT Hub, click on "IoT Devices" in the left-nav  (note, this is different than the "IoT Edge Devices" we used previously)
@@ -140,7 +140,7 @@ In VS Code, click on the 'Extensions' tab on the left nav.  Search for an instal
 
 After a few seconds, a list of IoT Device should appear in that section.  Once it does, find the IoT Device (not the edge device) that is tied to your "IoT Device" app.  Right click on it and select "Start monitoring D2C messages".  This should open an output window in VS Code and show that it is listening for messages.
 
-### start the local IoT device
+### Start the local IoT device
 
 open a new command prompt and CD to the module2/dotnet/readserial folder.  Run the following command to 'run' our IoT device.
 
@@ -166,8 +166,7 @@ In the VS Code output window opened earlier, you should see messages flowing tho
 
 In VS Code, right click on your IoT Device and click on "Stop Monitoring D2C Messages".
 
-
-### test Direct Method call
+### Test Direct Method call
 
 Finally, we also want to test making a Direct Method call to our IoT Device.  Later, this functionality will allow us to respond to "high temperature" alerts by taking action on the device.  For now, we just want to test the connectivity to make sure that edgeHub is routing Direct Method calls propery to our device.  To test:
 
