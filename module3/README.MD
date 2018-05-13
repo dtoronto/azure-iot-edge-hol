@@ -43,9 +43,9 @@ We will use VS Code to develop our module.
 ```
 dotnet new -i Microsoft.Azure.IoT.Edge.Module
 ```
-* now we are ready to create our project.  in the integrated terminal, run the following command  (where \<docker_user_name> is the user name for Docker Hub that you created earlier)
+* now we are ready to create our project.  in the integrated terminal, run the following command  (where \<login server> is the user name for Docker Hub that you created earlier)
 ```
-dotnet new aziotedgemodule -n FormatterModule -r <docker_user_name>/formattermodule
+dotnet new aziotedgemodule -n FormatterModule -r <login server>/formattermodule
 ```
 * Open the Program.cs file to view the code.  Review the boiler-plate code to understand what it does.  A few notes:
     * The main funtion retrieves the 'connection string' for the module from an environment variable passed into it's docker container by the edge Agent when it creates the container.  This connection string is for the module to connect to the local edge Hub instance.  Main called "Init" to initiate the connection to the local Hub and set up any callbacks.
