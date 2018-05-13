@@ -43,7 +43,7 @@ We will use VS Code to develop our module.
 ```
 dotnet new -i Microsoft.Azure.IoT.Edge.Module
 ```
-* now we are ready to create our project.  in the integrated terminal, run the following command  (where \<login server> is the user name for Docker Hub that you created earlier)
+* now we are ready to create our project.  in the integrated terminal, run the following command  (where \<login server> is the login server for Azure Container Registry that you created earlier)
 ```
 dotnet new aziotedgemodule -n FormatterModule -r <login server>/formattermodule
 ```
