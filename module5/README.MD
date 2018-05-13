@@ -21,7 +21,7 @@ We will use VS Code to develop our module.  This process will be very similar to
 * We will create the "scaffolding" for our IoT Edge module using the IoT Edge module template provided by the IoT Edge product team and previously installed in module 3.  In the integrated terminal, run the following command
 
 ```cmd
-dotnet new aziotedgemodule -n AlertModule -r <docker_user_name>/alertmodule
+dotnet new aziotedgemodule -n AlertModule -r <login server>/alertmodule
 ```
 
 ### Modify the sample implementation
