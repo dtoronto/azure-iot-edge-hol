@@ -148,15 +148,15 @@ Console.WriteLine($"Converted message sent({counter}): {newMessage}");
 
 Now that our module is created, we need to deploy it to our Edge device and get our messages routed through it.
 
-### Log into Docker
+### Log into Azure Container Registry
 
-The first step is to log into Docker in the Terminal window.
+The first step is to log into Azure Container Registry in the Terminal window.
 
 ````
-docker login -u <Docker username> -p <Docker password>
+docker login --username <username> --password <password> <login server>
 ````
 
-### Upload the image to Docker
+### Upload the image to Azure Container Registry
 
 In VS Code explorer:
 
