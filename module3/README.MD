@@ -1,6 +1,6 @@
 # Azure IoT Edge Hands On Labs - Module 3
 
-Created and maintained by the Microsoft Azure IoT Global Black Belts
+Forked from the Hands on Lab created and maintained by the Microsoft Azure IoT Global Black Belts
 
 ## Introduction
 
