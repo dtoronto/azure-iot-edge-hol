@@ -1,6 +1,12 @@
 # Azure IoT Edge Hands On Labs - Module 1
 
-Created and maintained by the Microsoft Azure IoT Global Black Belts
+## KNOW BEFORE YOU START
+
+This module uses the [MXChip IoT DevKit](https://aka.ms/iot-devkit) device to provide sensor data. You can develop for it using both the standard Arduino IDE or the Visual Studio Code extension for Arduino.  With built in Wifi, OLED display, headphone, microphone, sensors like temperature, humidity, motionand  pressure, the [MXChip IoT DevKit](https://aka.ms/iot-devkit) makes it very easy to get started with Azure IoT projects.
+
+![MXChip IoT DevKit Diagram](mxchip/mxchip-diagram.png)
+
+There is also a version of this module based on the standard Arduino located [here](../README.md)
 
 ## Azure Portal Access
 
@@ -33,11 +39,17 @@ Now let's create the "edge device"
 * Give your IoT Edge Device a name and click "Create"
 * once created, find the IoT Edge Device connection string (primary key) and copy/paste this into Notepad.  This is the "IoT Edge Device" connection string
 
-## Create docker hub account
+## Create docker repository
 
-IoT Edge modules are pulled by the Edge runtime from a docker containder image repository.  You can host one locally in your own network/infrastructure if you choose, Azure offers a [container service](https://azure.microsoft.com/en-us/services/container-service/)  and of course, Docker themselves offer a repository (docker hub).  For simplicity, we will run the labs based off of hosting images in docker hub.  If you feel confident in doing so, feel free to leverage other docker image respositories instead of docker hub if you wish.
+IoT Edge modules are pulled by the Edge runtime from a docker containder image repository.  You can host one locally in your own network/infrastructure if you choose, Azure offers a [Container Registry service](https://azure.microsoft.com/en-us/services/container-registry/)  and of course, Docker themselves offer a repository (docker hub).  For simplicity, we will run the labs based off of hosting images using Azure Container Registry.  If you feel confident in doing so, feel free to leverage other docker image respositories instead if you wish.
 
-For Docker Hub, you need a Docker ID.  Create one by visting www.docker.com and clicking on "Create Docker ID" and following the instructions.  Remember the docker ID you create, as we'll use it later.  If you are given a choice during sign up, choose a repository visibility of 'public'.  Generally, docker images are referred to in a three part name:  \<respository>/image:tag where "respository" (if using Docker Hub) is just your Docker ID,  image is your image name, and tag is an optional "tag" you can use to have multiple images with the same name (often used for versioning).
+### Create the repository
+Follow the instructions at https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal#create-a-container-registry to create a container registry. 
+
+
+  Copy the Login server URI, username and password into notepad as you will need them later.
+
+ Generally, docker images are referred to in a three part name:  \<respository>/image:tag where image is your image name, and tag is an optional "tag" you can use to have multiple images with the same name (often used for versioning).
 
 ## Clone the lab materials locally
 
@@ -45,7 +57,7 @@ The first step is to clone the lab materials locally (you'll need a few componen
 
 ```cmd
 cd \
-git clone https://github.com/azureiotgbb/azure-iot-edge-hol
+git clone https://github.com/toddwhitehead/azure-iot-edge-hol
 ```
 
 ## Additional setup
@@ -169,4 +181,5 @@ CTRL-C to exit the logs when you are ready
 
 __**Congratulations -- You now have an IoT Edge device up and running and ready to use**__
 
-To continue with module 2, click [here](/module2)
+To continue with module 2, click [here](/module2/README
+.md)

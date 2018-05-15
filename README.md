@@ -6,18 +6,16 @@ This hands-on lab demonstrates setting up, configuring, and developing modules f
 
 In this workshop you will:
 
-* Setup and configure a simple IoT Device, based on either an Arduino Uno connected to a DHT22 temperature sensor or an [MXChip IoT DevKit](https://aka.ms/iot-devkit), to simply (and dumbly) send temperature over the serial port every 3 seconds
-* create an "IoT Device" that reads the data from the serial port and connects to IoT Hub __**through**__ IoT Edge
-* create an IoT Edge module that reads the simple CSV temp/humidity data from the device and converts to JSON and passes the message along
-* create an Azure Stream Analytics module that a) aggregates the "every 3 seconds" data to a 30 second frequency to send to IoT Hub in the cloud and b) looks for temperatures above a certain threshold.  When a threshold violation occurs, the module will drop an "alert" message on Edge
+* Setup and configure a simple IoT Device, based on the [MXChip IoT DevKit](https://aka.ms/iot-devkit), to simply send sensor data over the serial port usign a custom protocol every 3 seconds
+* Create an "IoT Device" that reads the data from the serial port and connects to IoT Hub __**through**__ IoT Edge
+* Create an IoT Edge module that reads the simple CSV temp/humidity data from the device and converts to JSON and passes the message along
+* Create an Azure Stream Analytics module that a) aggregates the "every 3 seconds" data to a 30 second frequency to send to IoT Hub in the cloud and b) looks for temperatures above a certain threshold.  When a threshold violation occurs, the module will drop an "alert" message on Edge
 * create an IoT Edge module that reads the "alert" message from ASA and sends a Direct Method call to the IoT Device to light up an "alert" LED
 
 The labs are broken up into the following modules:
 
 * [Module 1](module1/mxchip/README.mxchip.md) - Prerequisites and IoT Edge setup
-* Module 2 - Setup and program the "IoT Device" using on of the following options
-  * [Arduino Uno](module2)
-  * [MXChip IoT DevKit](module2/README.dotnet.mxchip.md)
+* [Module 2](module2/README.md) Setup and program the "IoT Device" using on of the following options
 * [Module 3](module3) - Develop "Formatter" module
 * [Module 4](module4) - Azure Stream Analytics Edge job
 * [Module 5](module5) - Develop "Alert" module
@@ -37,8 +35,6 @@ For this lab, for simplicity of setup, we are using our Windows 10 desktops (run
 >Note: For the lab exercises, we need an IoT Hub created in an Azure Subscription for which you have administrative access.
 
 In order to execute the hands-on labs, there are a number of pre-requisites that need to be installed and configured.  Unless otherwise noted, the default installation of the items below are fine
-
->Note: For in-person deliveries by the IoT GBBs, some of this may have been done for you.  Please check with your instructor
 
 * Windows 10 Fall Creators Update (build 16299)
 * [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)   ** the "community edition" is fine.  Make sure you install the STABLE version.  A reboot may be required to enable Hyper-V
