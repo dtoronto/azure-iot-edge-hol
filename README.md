@@ -54,4 +54,4 @@ In order to execute the hands-on labs, there are a number of pre-requisites that
 
 ![python_install](/images/python_install.png)
 
-Get Started with [Module 1](module1/)
+Get Started with [Module 1](module1)
