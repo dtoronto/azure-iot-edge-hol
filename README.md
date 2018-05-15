@@ -14,8 +14,8 @@ In this workshop you will:
 
 The labs are broken up into the following modules:
 
-* [Module 1](module1/mxchip/README.mxchip.md) - Prerequisites and IoT Edge setup
-* [Module 2](module2/README.md) Setup and program the "IoT Device" using on of the following options
+* [Module 1](module1) - Prerequisites and IoT Edge setup
+* [Module 2](module2) - Setup and program the "IoT Device" using on of the following options
 * [Module 3](module3) - Develop "Formatter" module
 * [Module 4](module4) - Azure Stream Analytics Edge job
 * [Module 5](module5) - Develop "Alert" module
@@ -53,3 +53,5 @@ In order to execute the hands-on labs, there are a number of pre-requisites that
     * during setup, elect to "add python 2.7 folder to the path"  (see screenshot below -- You will need to SCROLL DOWN to see it)
 
 ![python_install](/images/python_install.png)
+
+Get Started with [Module 1](module1/)

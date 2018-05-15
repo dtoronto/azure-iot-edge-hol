@@ -16,7 +16,6 @@ https://portal.azure.com/?Microsoft_Azure_StreamAnalytics_onedge=true
 
 ## Create an IoT Hub and an "Edge Device"
 
-
 You can create an IoT hub using the following methods:
 
 * The + New option opens the blade shown in the following screen shot. The steps for creating the IoT hub through this method and through the marketplace are identical.
@@ -45,7 +44,6 @@ IoT Edge modules are pulled by the Edge runtime from a docker containder image r
 
 ### Create the repository
 Follow the instructions at https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal#create-a-container-registry to create a container registry. 
-
 
   Copy the Login server URI, username and password into notepad as you will need them later.
 

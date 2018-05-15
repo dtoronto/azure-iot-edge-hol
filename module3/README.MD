@@ -1,7 +1,5 @@
 # Azure IoT Edge Hands On Labs - Module 3
 
-Forked from the Hands on Lab created and maintained by the Microsoft Azure IoT Global Black Belts
-
 ## Introduction
 
 For this step of the lab, we are going to create an IoT Edge module that take the raw CSV format provided by our Arduino, converts it to JSON, and then puts the messages back on the edge Hub for further processing.
@@ -43,9 +41,9 @@ We will use VS Code to develop our module.
 ```
 dotnet new -i Microsoft.Azure.IoT.Edge.Module
 ```
-* now we are ready to create our project.  in the integrated terminal, run the following command  (where \<login server> is the login server for Azure Container Registry that you created earlier)
+* now we are ready to create our project.  in the integrated terminal, run the following command  (where \<docker_user_name> is the user name for Docker Hub that you created earlier)
 ```
-dotnet new aziotedgemodule -n FormatterModule -r <login server>/formattermodule
+dotnet new aziotedgemodule -n FormatterModule -r <docker_user_name>/formattermodule
 ```
 * Open the Program.cs file to view the code.  Review the boiler-plate code to understand what it does.  A few notes:
     * The main funtion retrieves the 'connection string' for the module from an environment variable passed into it's docker container by the edge Agent when it creates the container.  This connection string is for the module to connect to the local edge Hub instance.  Main called "Init" to initiate the connection to the local Hub and set up any callbacks.
@@ -148,15 +146,15 @@ Console.WriteLine($"Converted message sent({counter}): {newMessage}");
 
 Now that our module is created, we need to deploy it to our Edge device and get our messages routed through it.
 
-### Log into Azure Container Registry
+### Log into Docker
 
-The first step is to log into Azure Container Registry in the Terminal window.
+The first step is to log into Docker in the Terminal window.
 
 ````
-docker login --username <username> --password <password> <login server>
+docker login -u <Docker username> -p <Docker password>
 ````
 
-### Upload the image to Azure Container Registry
+### Upload the image to Docker
 
 In VS Code explorer:
 
@@ -176,7 +174,7 @@ In this section, we will get the module created above deployed and view the resu
 * click on "Set Modules" in the top menu bar.  
 * In the Set Modules blade, click on "Add IoT Edge Module"
     * In the "IoT Edge Modules" dialog, give your module a name (for example:  formattermodule).  Remember the name you used, including the proper 'case' of the letters, as we'll need that when we set the routes in the next step.
-    * in the image URI box, put in the exact same image name you used in the previous step (e.g. \<login server>/formattermodule:0.0.1-amd64)
+    * in the image URI box, put in the exact same image name you used in the previous step (e.g. \<docker hub id>/formattermodule:0.0.1-amd64)
     * leave the other defaults and click "Save"
 * back on the "Set Modules" blade, click "next"
 * on the "specify routes" blade, replace the default with the following:
@@ -208,7 +206,7 @@ In VS Code, under the "IOT HUB DEVICES" section, like before, you should be able
 
 __**  NOTE:  Now that we have an edge module "in between" our IoT device and IoT Hub in the cloud, the messages no longer appears as though it comes from the original IoT Device, but rather from our Edge device now. This is an important distinction.  This is one of the reasons also, that our Formatter Module snags the original deviceID and embeds it in our message (we could have also put it in the user-defined metadata for the message).  Otherwise, the original device origin would be lost.**__
 
-Stop the python script (CTRL-C) (or hit \<enter> if you used the .NET Core app) while we work on the next module
+Stop the .NET Core app by hittingt \<enter> while we work on the next module
 
 Ok - now we have messages flowing from our IoT Device and being translated to JSON and sent to IoT Hub.  However, the messages are flowing at the original high rate of our "dumb" IoTHub device.  Now we are going to add the capability to aggregate the data at the edge, as well as determine when a "high temperature" alert condition occurs (module 4) and take local action (module 5).
 
