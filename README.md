@@ -54,14 +54,15 @@ In order to execute the hands-on labs, there are a number of pre-requisites that
 
 ![python_install](/images/python_install.png)
 
-MXChip IoT DevKit requires the installation of some additional libraries and toolchains. Whilst These can be installed manually, We encourage you to use the following one-click installation process to prepare the development environment. This will install a complete development environment including:
-Node.js and Yarn: Runtime for the setup script and automated tasks.
-Azure CLI 2.0 MSI - Cross-platform command-line experience for managing Azure resources. The MSI contains dependent Python and pip.
-Visual Studio Code (VS Code): Lightweight code editor for DevKit development.
-Visual Studio Code extension for Arduino: Extension that enables Arduino development in Visual Studio Code.
-Arduino IDE: The extension for Arduino relies upon this tool.
-DevKit Board Package: Tool chains, libraries, and projects for the DevKit.
-ST-Link Utility: Essential tools and drivers.
+[MXChip IoT DevKit](https://aka.ms/iot-devkit) requires the installation of some additional libraries and toolchains. Whilst These can be installed [manually](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/), We encourage you to use the following [one-click installation process](https://microsoft.github.io/azure-iot-developer-kit/docs/get-started/#install-development-environment) to prepare the development environment. This will install a complete development environment including:
+* Node.js and Yarn: Runtime for the setup script and automated tasks.
+* Azure CLI 2.0 MSI - Cross-platform command-line experience for managing Azure resources. The MSI contains dependent Python and pip.
+* Visual Studio Code (VS Code): Lightweight code editor for DevKit development.
+* Visual Studio Code extension for Arduino: Extension that enables Arduino development in Visual Studio Code.
+* Arduino IDE: The extension for Arduino relies upon this tool.
+* DevKit Board Package: Tool chains, libraries, and projects for the DevKit.
+* ST-Link Utility: Essential tools and drivers.
+
 If you already have any these installed, the script will detect that and skip them.
 
 Get Started with [Module 1](module1)
