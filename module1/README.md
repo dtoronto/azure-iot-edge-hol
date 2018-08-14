@@ -53,7 +53,8 @@ IoT Edge modules are pulled by the Edge runtime from a docker containder image r
 
 ![Create ACR 2](/images/createacr2.png)
 
-4. fdsa
+4. When the Deployment succeeded message appears, select the container registry in the portal, then select Access keys.
+![Create ACR 3](/images/createacr3.png)
 
   Copy the Login server URI, username and password into notepad as you will need them later.
 
