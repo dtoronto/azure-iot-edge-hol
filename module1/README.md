@@ -63,7 +63,7 @@ IoT Edge modules are pulled by the Edge runtime from a docker containder image r
 
 ![Create ACR 4](/images/createacr4.png)
 
-Generally, docker images are referred to in a three part name:  \<respository>/image:tag where image is your image name, and tag is an optional "tag" you can use to have multiple images with the same name (often used for versioning).
+Note: Generally, docker images are referred to in a three part name:  \<respository>/image:tag where image is your image name, and tag is an optional "tag" you can use to have multiple images with the same name (often used for versioning).
 
 ## Clone the lab materials locally
 
