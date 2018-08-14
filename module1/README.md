@@ -46,8 +46,14 @@ IoT Edge modules are pulled by the Edge runtime from a docker containder image r
 
 1. Sign in to the Azure portal at https://portal.azure.com
 
-2. Create a container registry by clicking on Create a resource > Containers > Azure Container Registry.
+2. Create a container registry by clicking on:  Create a resource > Containers > Azure Container Registry.
 ![Create ACR 1](/images/createacr1.png)
+
+3. Enter values for Registry name and Resource group. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. Create a new resource group named  
+```
+myResourceGroup
+```
+and for SKU, select 'Basic'. Then Select Create to deploy the ACR instance.
 
 
   Copy the Login server URI, username and password into notepad as you will need them later.
