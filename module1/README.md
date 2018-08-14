@@ -50,6 +50,7 @@ IoT Edge modules are pulled by the Edge runtime from a docker containder image r
 ![Create ACR 1](/images/createacr1.png)
 
 3. Enter values for Registry name and Resource group. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. Create a new resource group named 'myResourceGroup' and for SKU, select 'Basic'. Then Select Create to deploy the ACR instance.
+
 ![Create ACR 2](/images/createacr2.png)
 
 4. fdsa
