@@ -94,88 +94,36 @@ Run the following commands from the root of the **"C" drive**
 
     git clone -b modules-preview http://github.com/azure/azure-iot-sdk-c
 
-> Note - there is a temporary bug in the script that we will use to generate our TLS certificates for IoT Edge.  To work around it, perform the following steps
+## Download and Install IoT Edge service
 
-    in notepad, open \azure-iot-sdk-c\tools\CACertificates\ca-certs.ps1
-    search down until you find the line:
-        "function New-CACertsEdgeDevice([string]$deviceName, [string]$signingCertSubject=($_intermediateCertSubject -f "1"))"
-    and replace it with the following (without the quotes)
-        "function New-CACertsEdgeDevice([string]$deviceName, [string]$signingCertSubject=("CN=$_intermediateCertCommonName" -f "1"))"
-    save the ca-certs.ps1 file and close
+Use PowerShell as administrator to download and install the IoT Edge runtime. Use the device connection string that you retrieved from IoT Hub to configure your device.
 
-Now we are ready to generate our TLS certificates for IoT Edge
+1. On your IoT Edge device, run PowerShell as an administrator.
 
-    mkdir c:\edge
-    cd \edge
-    Set-ExecutionPolicy Unrestricted
-    $ENV:PATH += ";c:\utils\OpenSSL\bin"
-    $ENV:OPENSSL_CONF="c:\utils\OpenSSL\bin\openssl.cnf"
-    . \azure-iot-sdk-c\tools\CACertificates\ca-certs.ps1
-    Test-CACertsPrerequisites
-
-Make sure it returns the result "SUCCESS". If the Test-CACertsprequisites call fails, it means that the local machine already contains Azure IoT test certs (possibly from a previously deployment). If that happens, you need to follow Step 5 - Cleanup of the instructions [here](https://github.com/Azure/azure-iot-sdk-c/blob/modules-preview/tools/CACertificates/CACertificateOverview.md) before moving on
-
->Note: Do not close the powershell session yet. If you do, just reopen it and re run lines 4-6
-
-We are now ready to generate the TLS certificates for our Edge device. Make sure you are still in the __c:\edge folder__ in your PowerShell session and run the command bellow to generate our test certificates. In production, you would use a real CA.
-
-    New-CACertsCertChain rsa
-
-In the azure portal, navigate back to your IoT Hub and click on "Certificates" on the left-nav and click "+Add".  Give your certificate a name, and upload the c:\edge\RootCA.cer" file
-
-Now we need to generate certs for our specific gateway. In Powershell run:
-    
-    New-CACertsEdgeDevice myGateway
-
-
-This will generate the gateway specific certificates (MyGateway.*). When prompted to enter a password during the signing process, just enter "1234".
-
->Note: If anything goes wrong during this process and you need to repeat it, you'll likely need to clean up the existing certs before generating new ones.  To do so, follow Step 5 - Cleanup, of the process outlined [here](https://github.com/Azure/azure-iot-sdk-c/blob/modules-preview/tools/CACertificates/CACertificateOverview.md)
-
-## Install IoT Edge configuration tool
-
-Microsoft provides a python-based, cross-platform configuration and setup tool for IoT Edge.  To install the tool, open an administrator command prompt and run:
+2. On your IoT Edge device, run PowerShell as an administrator.
 
 ```cmd
-pip install -U azure-iot-edge-runtime-ctl
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+Install-SecurityDaemon -Manual -ContainerOs Linux
 ```
 
-## Configure and start IoT Edge
+3. When prompted for a DeviceConnectionString, provide the string that you copied in the previous section. Don't include quotes around the connection string. 
 
-Now that we have all the pieces in place, we are ready to start up our IoT Edge device.  We will start it by specifying the IoT Edge Device connection string capture above, as well as specifying the certificates we generated to allow downstream devices to establish valid TLS sessions with our Edge gateway.
+4. Check the status of the IoT Edge service.
 
-To setup and configure our IoT Edge device, make sure  Docker is running and run the following command:  (if you used '1234' for the password above, enter it again here when prompted).
+5. Check the status of the IoT Edge service.
 
+```cmd
+Get-Service iotedge
 ```
 
-iotedgectl setup --connection-string "<Iot Edge Device connection string>" --edge-hostname "mygateway.local" --device-ca-cert-file c:\edge\myGateway-public.pem --device-ca-chain-cert-file c:\edge\myGateway-all.pem --device-ca-private-key-file c:\edge\myGateway-private.pem --owner-ca-cert-file c:\edge\RootCA.pem
-    
-```
-Replace *IoT Edge Device connection string* with the Edge device connection string you captured above.  If it prompts you for a password for the edge private cert, use '12345'   (NOTE: different from the password above!)
-
-We're ready now to start our IoT Edge device
+6. View all the modules running on your IoT Edge device. Since the service just started for the first time, you should only see the edgeAgent module running. The edgeAgent module runs by default, and helps to install and start any additional modules that you deploy to your device. 
 
 ```
-iotedgectl start
-```
-
-You can see the status of the docker images by running 
-
-```
-docker ps
+iotedge list
 ```
 
 At this point, because we haven't added any modules to our Edge device yet, you should only see one container/module running called 'edgeAgent'
-
-If you want to see if the edge Agent successfully started, run
-
-```
-docker logs -f edgeAgent
-```
-
->Note: You may see an error in the edgeAgent logs about having an 'empty configuration'.  That's fine because we haven't set a configuration yet! 
-
-CTRL-C to exit the logs when you are ready
 
 __**Congratulations -- You now have an IoT Edge device up and running and ready to use**__
 
