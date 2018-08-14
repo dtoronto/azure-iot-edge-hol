@@ -123,7 +123,6 @@ Get-Service iotedge
 iotedge list
 ```
 
-At this point, because we haven't added any modules to our Edge device yet, you should only see one container/module running called 'edgeAgent'
 
 __**Congratulations -- You now have an IoT Edge device up and running and ready to use**__
 
