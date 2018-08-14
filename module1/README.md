@@ -43,7 +43,12 @@ Now let's create the "edge device"
 IoT Edge modules are pulled by the Edge runtime from a docker containder image repository.  You can host one locally in your own network/infrastructure if you choose, Azure offers a [Container Registry service](https://azure.microsoft.com/en-us/services/container-registry/)  and of course, Docker themselves offer a repository (docker hub).  For simplicity, we will run the labs based off of hosting images using Azure Container Registry.  If you feel confident in doing so, feel free to leverage other docker image respositories instead if you wish.
 
 ### Create the repository
-Follow the instructions at https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal#create-a-container-registry to create a container registry. 
+
+1. Sign in to the Azure portal at https://portal.azure.com
+
+2. Create a container registry by clicking on Create a resource > Containers > Azure Container Registry.
+![Create ACR 1](/images/createacr1.png)
+
 
   Copy the Login server URI, username and password into notepad as you will need them later.
 
