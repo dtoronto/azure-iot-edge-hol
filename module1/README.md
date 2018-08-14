@@ -50,7 +50,8 @@ IoT Edge modules are pulled by the Edge runtime from a docker containder image r
 ![Create ACR 1](/images/createacr1.png)
 
 3. Enter values for Registry name and Resource group. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. Create a new resource group named 'myResourceGroup' and for SKU, select 'Basic'. Then Select Create to deploy the ACR instance.
- ![Create ACR 2](/images/createacr2.png)
+
+![Create ACR 2](/images/createacr2.png)
 
 4. When the Deployment succeeded message appears, select the container registry in the portal, then select Access keys.
 ![Create ACR 3](/images/createacr3.png)
@@ -59,11 +60,10 @@ IoT Edge modules are pulled by the Edge runtime from a docker containder image r
 * Login server
 * Username
 * password
-![Create ACR 3](/images/createacr3.png)
 
-  Copy the Login server URI, username and password into notepad as you will need them later.
+![Create ACR 4](/images/createacr4.png)
 
- Generally, docker images are referred to in a three part name:  \<respository>/image:tag where image is your image name, and tag is an optional "tag" you can use to have multiple images with the same name (often used for versioning).
+Generally, docker images are referred to in a three part name:  \<respository>/image:tag where image is your image name, and tag is an optional "tag" you can use to have multiple images with the same name (often used for versioning).
 
 ## Clone the lab materials locally
 
