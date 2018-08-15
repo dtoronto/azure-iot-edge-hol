@@ -71,7 +71,7 @@ The first step is to clone the lab materials locally (you'll need a few componen
 
 ```cmd
 cd \
-git clone https://github.com/toddwhitehead/azure-iot-edge-hol
+git clone https://github.com/dtoronto/azure-iot-edge-hol
 ```
 
 ## Additional setup
